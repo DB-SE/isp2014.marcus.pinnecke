@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<featureModel chosenLayoutAlgorithm="1">
+		<struct>
+			<and abstract="true" mandatory="true" name="FeaturePaint">
+				<and mandatory="true" name="Base">
+					<description>
+						Das Basis-Feature beschreibt die prinzipielle Benutzererfahrung der Anwendung. Hierzu gehört die GUI in verschiedenen Ausführungen sowie eine Reihe von Kernfunktionalität, die von einem ImageViewer bis zu einem kompletten Zeichenprogramm führen.
+					</description>
+					<and abstract="true" mandatory="true" name="GUI">
+						<description>
+							Die GUI ist ein zentraler Aspekt der Anwendung. Über diese kann der Nutzer Aktionen tätigen.
+						</description>
+						<alt mandatory="true" name="Menuebar">
+							<description>
+								Die Menübar gibt einen schnellen Zugriff auf alle Funktionalität im Programm. Entweder man entscheidtet sich für die klassische Menüleiste am oberen Fensterrand oder eine RibbonBar ähnliche Menüleiste, die intutiver zu bedienen ist und die Funktionalität besser semantisch gruppiert.
+							</description>
+							<feature mandatory="true" name="RibbonBar">
+								<description>
+									Die Ribbonbar ist eine Kombination zwischen klassischer Menüleiste und Toolbar und vereinigt viele Toolbars unter einem einheitlichen Layout.
+								</description>
+							</feature>
+							<feature mandatory="true" name="NormalMenubar">
+								<description>
+									Die Klassische Menüleiste gruppiert die Funktionalität des Programms in verschiedene Kategorien wie Datei, Bearbeiten, Ansicht usw. und bietet einen strukturierten Zugriff auf die Funktionalität.
+								</description>
+							</feature>
+						</alt>
+						<feature name="Toolbar">
+							<description>
+								Die Toolbar ist ein optionales Feature, mit dem der Nutzer einzelne Funktionen aus der Menüleiste direkt auf dem Workspace unterhalb der Menüleiste plazieren kann. Wenn sich für eine Ribbonbar entschieden wird, kann keine Toolbar geliefert werden, da diese dann überflüssig ist.
+							</description>
+						</feature>
+						<feature mandatory="true" name="Canvas">
+							<description>
+								Die Canvas ist der zentrale Zeichenbereich der Anwendung. In ihr werden Bilder dargestellt und ggf. durch verschiedene Tools manipuliert.
+							</description>
+						</feature>
+						<feature name="Statusbar">
+							<description>
+								Die Statusleiste umfasst einige zusätzliche Informationen zu allen Werkzeugen oder Befehlen der Anwendung.
+							</description>
+						</feature>
+						<feature name="ToolsWindow">
+							<description>
+								Das ToolsWindows ist eine Seiteleiste, die sich links neben der Canvas befindet. Ähnlich einer Toolbar bietet sie einen direkten Zugriff auf alle Werkzeuge, die zur Bildbearbeitung nötig sind.
+							</description>
+						</feature>
+					</and>
+					<and abstract="true" mandatory="true" name="CoreFunctionality">
+						<description>
+							Dieses Feature beschreibt die Kernfunktionalität der Zeichenanwendung. Durch die jeweilige Auswahl kann alles zwischen einem einfachen ImageViewer und einer komplexen Zeichenanwendung geliefert werden.
+						</description>
+						<and abstract="true" name="ImageManipulation">
+							<and abstract="true" name="Filters">
+								<feature name="Monochrom"/>
+								<feature name="Blur"/>
+							</and>
+							<and abstract="true" name="Transformation">
+								<feature name="Scale"/>
+								<feature name="Rotate"/>
+							</and>
+						</and>
+						<and abstract="true" mandatory="true" name="Basic_File_Handling">
+							<description>
+								Dieses Feature beschreibt den standardmäßiigen Umgang mit Dateien. Da für einen ImageViewer wenigsten das Laden der Datei möglich sein muss, ist automatisch das Feature "Open" ausgewählt.
+							</description>
+							<feature mandatory="true" name="Open">
+								<description>
+									Öffnen eine Bilddatei.
+								</description>
+							</feature>
+							<feature name="Save">
+								<description>
+									Speichert eine Bilddatei.
+								</description>
+							</feature>
+							<feature name="New">
+								<description>
+									Verwirft die aktuelle Bilddatei, erstellt eine neue Bilddatei ohne diese zu speichern.
+								</description>
+							</feature>
+							<feature name="FileInfo">
+								<description>
+									Gibt Informationen zum aktuellen Bild zurück wie Ausmaße und Speicherbedarf.
+								</description>
+							</feature>
+							<feature name="RecentFilesList">
+								<description>
+									Listet die letzten 5 verwendeten Dateien für einen schnellen Zugriff auf.
+								</description>
+							</feature>
+						</and>
+						<and abstract="true" name="Editing">
+							<description>
+								Sollte die Anwendung mehr als nur ein ImageViewer sein, dann ist dieses Feature genau richtig.
+							</description>
+							<feature name="Undo">
+								<description>
+									Durch diese Option können die letzten Änderungen am Bild zurückgesetzt werden.
+								</description>
+							</feature>
+							<feature name="Fill">
+								<description>
+									Füllt die gesamte Canvas in einer gegeben Farbe.
+								</description>
+							</feature>
+							<and abstract="true" name="DrawTools">
+								<description>
+									Mit FeaturePaint kann auch gezeichnet werden! Durch verschiedene Tools können auf Wunsch Linen oder Rechtecke gemalt werden sowie optional Text eingebunden werden.
+								</description>
+								<feature name="PenTool">
+									<description>
+										Stift-Werkzeug mit der in einer gegegeben Farbe gezeichnet werden kann.
+									</description>
+								</feature>
+								<feature name="EraserTool">
+									<description>
+										Radiergrummi-Werkzeug, um Bildbereiche zu entfernen.
+									</description>
+								</feature>
+								<feature name="TextTool">
+									<description>
+										Schreiben von Text in einer bestimmten Farbe auf das Bild.
+									</description>
+								</feature>
+								<feature name="CircleTool">
+									<description>
+										Kreis-Werkzeug mit der in einer gegegeben Farbe gezeichnet werden kann.
+									</description>
+								</feature>
+								<feature name="RectangleTool">
+									<description>
+										Rechteck-Werkzeug mit der in einer gegegeben Farbe gezeichnet werden kann.
+									</description>
+								</feature>
+								<feature name="ColorPicker"/>
+							</and>
+						</and>
+						<and abstract="true" name="Viewing">
+							<description>
+								Änderungen der Canvas Größe durch einen Zoom oder Vollbild der Anwendung.
+							</description>
+							<feature name="Zoom">
+								<description>
+									Vergrößert in einigen Stufen die Darstellungsgröße der Canvas.
+								</description>
+							</feature>
+							<feature name="Fullscreen">
+								<description>
+									Schaltet die Anwendung optional in Vollbild.
+								</description>
+							</feature>
+						</and>
+					</and>
+				</and>
+				<feature name="Branding">
+					<description>
+						Bei aktivierten Feature wird der Herstellername in der Titelleiste mit angezeigt.
+					</description>
+				</feature>
+				<alt mandatory="true" name="LanguagePack">
+					<description>
+						Sprachpaket der Anwendung zur Lokalisierung.
+					</description>
+					<feature mandatory="true" name="German">
+						<description>
+							Deutsche Benutzeroberfläche
+						</description>
+					</feature>
+					<feature mandatory="true" name="English">
+						<description>
+							Englische Benutzeroberfläche.
+						</description>
+					</feature>
+				</alt>
+			</and>
+		</struct>
+		<constraints>
+			<rule>
+				<imp>
+					<var>RibbonBar</var>
+					<not>
+						<disj>
+							<var>NormalMenubar</var>
+							<var>Toolbar</var>
+						</disj>
+					</not>
+				</imp>
+			</rule>
+			<rule>
+				<eq>
+					<var>Editing</var>
+					<conj>
+						<var>New</var>
+						<var>Save</var>
+					</conj>
+				</eq>
+			</rule>
+			<rule>
+				<imp>
+					<disj>
+						<var>PenTool</var>
+						<disj>
+							<var>RectangleTool</var>
+							<var>TextTool</var>
+						</disj>
+					</disj>
+					<var>ColorPicker</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>Fill</var>
+					<var>ColorPicker</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>ToolsWindow</var>
+					<disj>
+						<var>PenTool</var>
+						<disj>
+							<var>EraserTool</var>
+							<disj>
+								<var>TextTool</var>
+								<disj>
+									<var>CircleTool</var>
+									<disj>
+										<var>RectangleTool</var>
+										<disj>
+											<var>ColorPicker</var>
+											<var>Fill</var>
+										</disj>
+									</disj>
+								</disj>
+							</disj>
+						</disj>
+					</disj>
+				</imp>
+			</rule>
+		</constraints>
+		<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
+		<comments/>
+		<featureOrder userDefined="false"/>
+	</featureModel>
