@@ -1,0 +1,21 @@
+Usage
+	<name> ([imageviewer|mxpaint|mxpaint2k]|[FLAGS])
+
+
+	Select variant imageviewer, mxpaint (old school) or mxpaint2k (fancy modern) or build your own where flags is a list of following options
+			MENUBAR	Displays a menubar
+			RIBBONBAR	Displays a ribbon bar
+			TOOLBAR	Displays a toolbar
+			STATUSBAR	Displays a statusbar
+			TOOLSWINDOW	Displays a toolswindow
+			PEN	Enables editing the image with a pen tool
+
+	e.g. lauchner.class MENUBAR STATUSBAR
+
+Please note:
+
+	- Some kind of menubar is mandatory
+
+	- Eighter choose ribbons or classic menubar (with optional toolbar) but not both
+
+	- When selecting tools window a least one tool must be selected as well.

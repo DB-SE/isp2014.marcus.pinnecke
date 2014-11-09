@@ -1,0 +1,3 @@
+I tested 3 combinations (imageviewer, mxpaint, mxpaint2k) and also constrain checking for
+certain variations (which is done before the view is build). Everything is as expected.
+The abstract "menu" features was a bit hard to detect.
