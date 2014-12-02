@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<featureModel chosenLayoutAlgorithm="1">
+		<struct>
+			<and abstract="true" mandatory="true" name="FeatureCalc">
+				<and abstract="true" mandatory="true" name="BasicOperations">
+					<feature name="Plus"/>
+					<feature name="Minus"/>
+					<feature name="Multiply"/>
+					<feature name="Division"/>
+					<feature name="Sqrt"/>
+					<feature name="Modulo"/>
+				</and>
+				<and abstract="true" mandatory="true" name="GUI">
+					<alt abstract="true" mandatory="true" name="Display">
+						<feature mandatory="true" name="Tiny"/>
+						<feature mandatory="true" name="Small"/>
+						<feature mandatory="true" name="Medium"/>
+						<feature mandatory="true" name="Large"/>
+					</alt>
+					<and abstract="true" name="Keys">
+						<feature name="KeyUndo"/>
+						<feature name="KeyClear"/>
+						<feature name="KeyPlus"/>
+						<feature name="KeyMinus"/>
+						<feature name="KeyMultiply"/>
+						<feature name="KeyDivision"/>
+						<feature name="KeySqrt"/>
+						<feature name="KeyModulo"/>
+						<feature mandatory="true" name="NumPad"/>
+						<feature mandatory="true" name="KeyPerformOperation"/>
+					</and>
+				</and>
+			</and>
+		</struct>
+		<constraints>
+			<rule>
+				<imp>
+					<var>BasicOperations</var>
+					<disj>
+						<var>Plus</var>
+						<disj>
+							<var>Minus</var>
+							<disj>
+								<var>Multiply</var>
+								<disj>
+									<var>Division</var>
+									<disj>
+										<var>Sqrt</var>
+										<var>Modulo</var>
+									</disj>
+								</disj>
+							</disj>
+						</disj>
+					</disj>
+				</imp>
+			</rule>
+			<rule>
+				<eq>
+					<var>Plus</var>
+					<var>KeyPlus</var>
+				</eq>
+			</rule>
+			<rule>
+				<eq>
+					<var>Minus</var>
+					<var>KeyMinus</var>
+				</eq>
+			</rule>
+			<rule>
+				<eq>
+					<var>Multiply</var>
+					<var>KeyMultiply</var>
+				</eq>
+			</rule>
+			<rule>
+				<eq>
+					<var>Division</var>
+					<var>KeyDivision</var>
+				</eq>
+			</rule>
+			<rule>
+				<eq>
+					<var>Sqrt</var>
+					<var>KeySqrt</var>
+				</eq>
+			</rule>
+			<rule>
+				<eq>
+					<var>Modulo</var>
+					<var>KeyModulo</var>
+				</eq>
+			</rule>
+		</constraints>
+		<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
+		<comments/>
+		<featureOrder userDefined="false"/>
+	</featureModel>
