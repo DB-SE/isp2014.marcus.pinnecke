@@ -1,0 +1,55 @@
+JakartaVM
+Copyright (c) Marcus Pinnecke 2014, marcus.pinnecke@st.ovgu.de
+
+README
+------
+
+
+
+Dieses Projekt ist eine kleine VM, die ein wenig an die JVM angelehnt ist. Ein Programm kann
+in den VM-RAM geladen und von dort aus gestartet werden. Neben Operationen auf dem Stack können
+auch (hardcoded) Methoden über den ConstantPool aufgerufen werden. Darüber hinaus kann diese
+VM array-Variablen erstellen und diese manipulieren sowie deren Inhalt ausgeben. Zusätzlich
+gibt es einen Befehlsatz, der Manipulationen im RAM erlaubt, so dass z.B. das laufende
+Programm verändert werden kann. Verschiedene Konfigurationen erlauben eine unterschiedliche
+Teilmenge des gesamten Befehlsatzes bzw. ob ein Array-Variablen angelegt werden können oder
+ob "Kernel"-Methoden im ConstantPool bereitstehen und abgerufen werden können. 
+
+Beispielhafte Programme befinden sich in ProgrammExamples.java, wobei diese in Launcher.java
+wahlweise ausprobiert werden können.
+
+Es folgt ein Überblick über die Architektur:
+
+
+
+Die VM läuft über 1 Byte OPCODE	und 2 Byte OPERAND. Der Stack ist ein Short-Stack beliebiger länge.
+Der Constant Pool umfasst maximal folgende Einträge
+
+
+ID  | Identifier								Parameter
+--------------------------------------------------------------
+3	|	Int					(CONST INT 10)
+4	| 	Float				(CONST INT 11)
+5	|	Long				(CONST INT 12)
+6	| 	Double				(CONST INT 13)
+7	|	String				(CONST INT 14)
+-------------------
+100 | Sandbox Write			(CONST INT 6661)	array of data
+-------------------
+101 | System Exit			(CONST INT 6662)	exit code
+102 | System Write			(CONST INT 6663)	ram_address, length
+
+
+Im folgenden der Befehlsatz, der an die JVM angelehnt ist. Der OpCode ist nicht binärkompatibel, da
+Java kein unsigned byte kennt und dies zu aufwendig gewesen wäre.
+
+Mnemonic	|	OpCode (hex)	|	Operands (short		|	Stack (before->after) |		Description
+------------|-------------------|-----------------------|-------------------------|------------------
+newarray	|   00				|   index				|	count -> reference	  | 	create a new array of references of length *count* and component type identified by the class reference *index*
+bipush		|   01				|   value				|   value				  | 	pushes value as integer into stack
+arraysto	|	02				|	address				|	reference -> _		  |		Writes entire content of array reference to memory at address			
+getstatic	|   03				|   index				|	-> value			  |		Gets the value of constant object with id index 
+castore		|   04				|   0					|   arrayref, index, value|		Stores value at array arrayred at position index
+aaload		|	05				|	0					|	arrayref, index → value	|	load onto the stack a reference from an array
+invokevirtual | 06				|	0					|	constID, ArgCount, [a1,...,a_ArgCount]	->	|	invokes a methode constID from constant pool with ArgCount arguments. The return value is pushed to stack
+dup			|	07				|	0					|	value -> value, value |		Duplicates the stacks top

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<featureModel chosenLayoutAlgorithm="1">
+		<struct>
+			<and abstract="true" mandatory="true" name="JakartaVM">
+				<and mandatory="true" name="VirtualMachine">
+					<and abstract="true" mandatory="true" name="ExecutionEngine">
+						<and mandatory="true" name="Instruction">
+							<feature name="newarray_c5"/>
+							<feature name="bipush_10"/>
+							<feature name="arraysto_H0"/>
+							<alt abstract="true" name="getstatic_b2">
+								<feature mandatory="true" name="getstatic_b2_types"/>
+								<feature mandatory="true" name="getstatic_b2_sandbox"/>
+								<feature mandatory="true" name="getstatic_b2_kernel"/>
+							</alt>
+							<feature name="castore_55"/>
+							<feature name="aaload_32"/>
+							<alt abstract="true" name="invokevirtual_b6">
+								<feature mandatory="true" name="invokevirtual_b6_sandbox"/>
+								<feature mandatory="true" name="invokevirtual_b6_kernel"/>
+							</alt>
+							<feature name="dup"/>
+						</and>
+						<feature mandatory="true" name="InstructionSet"/>
+					</and>
+					<feature name="Stack"/>
+					<and abstract="true" name="Pools">
+						<and name="ConstantPool">
+							<feature name="Kernel"/>
+							<feature name="Sandbox"/>
+							<feature name="Types"/>
+						</and>
+						<and abstract="true" name="ReferencePool">
+							<feature mandatory="true" name="ArrayObjects"/>
+						</and>
+					</and>
+					<feature mandatory="true" name="RAM"/>
+				</and>
+				<feature name="Launcher"/>
+			</and>
+		</struct>
+		<constraints>
+			<rule>
+				<imp>
+					<var>newarray_c5</var>
+					<conj>
+						<var>ArrayObjects</var>
+						<var>Types</var>
+					</conj>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>bipush_10</var>
+					<var>Stack</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>arraysto_H0</var>
+					<conj>
+						<var>Stack</var>
+						<var>RAM</var>
+					</conj>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>getstatic_b2</var>
+					<var>Stack</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>getstatic_b2_kernel</var>
+					<var>Kernel</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>getstatic_b2_sandbox</var>
+					<var>Sandbox</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>getstatic_b2_types</var>
+					<var>Types</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>castore_55</var>
+					<conj>
+						<var>Stack</var>
+						<var>ArrayObjects</var>
+					</conj>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>aaload_32</var>
+					<conj>
+						<var>Stack</var>
+						<var>ArrayObjects</var>
+					</conj>
+				</imp>
+			</rule>
+		</constraints>
+		<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
+		<comments/>
+		<featureOrder userDefined="false"/>
+	</featureModel>
