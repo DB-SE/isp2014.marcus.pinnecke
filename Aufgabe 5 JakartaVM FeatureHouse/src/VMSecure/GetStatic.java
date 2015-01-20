@@ -1,5 +1,5 @@
 /**
- * Mnemonic:				getstatic (full access level)
+ * Mnemonic:				getstatic (only type level)
  * Opcode:					03
  * Operand:					index
  * Stack (before->after):	_ -> value	  
@@ -18,20 +18,16 @@ public  class  GetStatic  extends Instruction {
 		short typeIndex = context.constantPool.get(index);
 		
 		 if ((typeIndex == 10 ) || // Int
-		     (typeIndex == 11 ) || // Long
-			 (typeIndex == 12 ) || // Float
+		     (typeIndex == 11 ) || // Float
+			 (typeIndex == 12 ) || // Long
 			 (typeIndex == 13 ) || // Double
-			 (typeIndex == 14 ) || // Char 
-			 (typeIndex == 6661) || // Sandbox method call
-			 (typeIndex == 6662) || // System exit
-			 (typeIndex == 6663)) // System write 
-		 {			 	 
+			 (typeIndex == 14 )) { // Char
 			 
 			 context.stack.push(typeIndex);
 			 
 		 } else {
-			 System.err.println("Unknown or illegal type index from constant pool at level type/sandbox/kernel.");
-			 System.exit(10);
+			 System.err.println("Unknown or illegal type index from constant pool at level types.");
+			 System.exit(9);
 		 }
 	}
 

@@ -52,46 +52,10 @@ public   class  VirtualMachine {
 
 	
 
-	 private void  registerInstruction__wrappee__arraysto_H0  ()
+	 private void  registerInstruction__wrappee__getstatic_b2_types  ()
 	{
 		registerInstruction__wrappee__bipush_10();
-		Arraysto op = new Arraysto();
-		this.instructionSet.put(op.getByteCode(), op);
-	}
-
-	
-
-	 private void  registerInstruction__wrappee__getstatic_b2_kernel  ()
-	{
-		registerInstruction__wrappee__arraysto_H0();
 		GetStatic op = new GetStatic();
-		this.instructionSet.put(op.getByteCode(), op);
-	}
-
-	
-
-	 private void  registerInstruction__wrappee__castore_55  ()
-	{
-		registerInstruction__wrappee__getstatic_b2_kernel();
-		Castore op = new Castore();
-		this.instructionSet.put(op.getByteCode(), op);
-	}
-
-	
-
-	 private void  registerInstruction__wrappee__aaload_32  ()
-	{
-		registerInstruction__wrappee__castore_55();
-		Aaload op = new Aaload();
-		this.instructionSet.put(op.getByteCode(), op);
-	}
-
-	
-
-	 private void  registerInstruction__wrappee__invokevirtual_b6_kernel  ()
-	{
-		registerInstruction__wrappee__aaload_32();
-		InvokeVirtual op = new InvokeVirtual();
 		this.instructionSet.put(op.getByteCode(), op);
 	}
 
@@ -99,8 +63,8 @@ public   class  VirtualMachine {
 
 	public void registerInstruction()
 	{
-		registerInstruction__wrappee__invokevirtual_b6_kernel();
-		Dup op = new Dup();
+		registerInstruction__wrappee__getstatic_b2_types();
+		InvokeVirtual op = new InvokeVirtual();
 		this.instructionSet.put(op.getByteCode(), op);
 	}
 

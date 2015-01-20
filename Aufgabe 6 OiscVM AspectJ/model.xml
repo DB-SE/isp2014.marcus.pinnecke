@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<featureModel chosenLayoutAlgorithm="1">
+		<struct>
+			<and abstract="true" mandatory="true" name="OiscVM">
+				<or abstract="true" name="Diagnostics">
+					<alt abstract="true" mandatory="true" name="ProgramCounter">
+						<feature mandatory="true" name="LogProgramCounterBeforeExecitopm"/>
+						<feature mandatory="true" name="LogProgramCounterAfterExecution"/>
+					</alt>
+					<and abstract="true" mandatory="true" name="Memory">
+						<or abstract="true" mandatory="true" name="Changes">
+							<feature mandatory="true" name="LogRead"/>
+							<feature mandatory="true" name="LogWrite"/>
+						</or>
+					</and>
+					<and abstract="true" mandatory="true" name="Program">
+						<or abstract="true" mandatory="true" name="PrintProgram">
+							<feature mandatory="true" name="PPBeforeExecution"/>
+							<feature mandatory="true" name="PPAfterExecution"/>
+						</or>
+					</and>
+					<and abstract="true" mandatory="true" name="Engine">
+						<or abstract="true" mandatory="true" name="PrintExecutaedInstruction">
+							<feature mandatory="true" name="BeforeExecution"/>
+							<feature mandatory="true" name="AfterExecution"/>
+						</or>
+					</and>
+				</or>
+				<and abstract="true" name="Management">
+					<and abstract="true" mandatory="true" name="ProgramFlow">
+						<feature name="ResetProgramCounterAfterFinish"/>
+						<feature name="AddressShift"/>
+					</and>
+				</and>
+			</and>
+		</struct>
+		<constraints/>
+		<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
+		<comments/>
+		<featureOrder userDefined="false"/>
+	</featureModel>

@@ -15,30 +15,6 @@ public   class  ConstantPool  extends java.util.HashMap<Short, Short> {
 	
 
 	/*
-	 * 101 | System Exit			(CONST INT 6662)
-	 * 102 | System Write			(CONST INT 6663)
-	 */	
-
-	 private void  registerConstants__wrappee__Kernel  () {
-		registerConstants__wrappee__ConstantPool();
-		super.put((short) 101, CONST_SYSTEM_EXIT);
-		super.put((short) 102, CONST_SYSTEM_WRITE);
-	}
-
-	
-
-	/*
-	 * 100 | Sandbox Write			(CONST INT 6661)
-	 */	
-
-	 private void  registerConstants__wrappee__Sandbox  () {
-		registerConstants__wrappee__Kernel();
-		super.put((short) 100, CONST_SANDBOX_WRITE);
-	}
-
-	
-
-	/*
 	 * 3	|	Int					(CONST INT 10)
 	 * 4	| 	Float				(CONST INT 11)
 	 * 5	|	Long				(CONST INT 12)
@@ -47,7 +23,7 @@ public   class  ConstantPool  extends java.util.HashMap<Short, Short> {
 	 */	
 
 	public void registerConstants() {
-		registerConstants__wrappee__Sandbox();
+		registerConstants__wrappee__ConstantPool();
 		super.put((short) 3, CONST_INTEGER);
 		super.put((short) 4, CONST_FLOAT);
 		super.put((short) 5, CONST_LONG);
@@ -65,17 +41,6 @@ public   class  ConstantPool  extends java.util.HashMap<Short, Short> {
 		}
 		return super.get(key);
 	}
-
-	
-	
-	public static final short CONST_SYSTEM_EXIT = 6662;
-
-	
-	public static final short CONST_SYSTEM_WRITE = 6663;
-
-	
-	
-	public static final short CONST_SANDBOX_WRITE = 6661;
 
 	
 	

@@ -4,46 +4,30 @@
 		"Instruction",
 		"newarray_c5",
 		"bipush_10",
-		"arraysto_H0",
-		"getstatic_b2_kernel",
-		"castore_55",
-		"aaload_32",
-		"invokevirtual_b6_kernel",
-		"dup",
+		"getstatic_b2_types",
+		"invokevirtual_b6_sandbox",
 		"InstructionSet",
 		"Stack",
 		"ConstantPool",
-		"Kernel",
-		"Sandbox",
 		"Types",
 		"ArrayObjects",
 		"RAM",
 		"Launcher"
 	],
 	"roles": {
-		"foo": {
-			"Hello": "foo__wrappee__Hello",
-			"World": "foo",
-			"Printer": "foo__wrappee__Hello"
-		},
-		"main": {
-			"Base": "main",
-			"Launcher": "main"
-		},
 		"registerInstruction": {
 			"VirtualMachine": "registerInstruction__wrappee__VirtualMachine",
-			"bipush_10": "registerInstruction__wrappee__bipush_10",
-			"aaload_32": "registerInstruction__wrappee__aaload_32",
-			"arraysto_H0": "registerInstruction__wrappee__arraysto_H0",
-			"castore_55": "registerInstruction__wrappee__castore_55",
-			"getstatic_b2_kernel": "registerInstruction__wrappee__getstatic_b2_kernel",
-			"getstatic_b2_sandbox": "registerInstruction__wrappee__getstatic_b2_sandbox",
-			"getstatic_b2_types": "registerInstruction__wrappee__getstatic_b2_types",
-			"invokevirtual_b6": "registerInstruction__wrappee__VirtualMachine",
 			"newarray_c5": "registerInstruction__wrappee__newarray_c5",
-			"invokevirtual_b6_sandbox": "registerInstruction__wrappee__invokevirtual_b6_sandbox",
-			"dup": "registerInstruction",
-			"invokevirtual_b6_kernel": "registerInstruction__wrappee__invokevirtual_b6_kernel"
+			"bipush_10": "registerInstruction__wrappee__bipush_10",
+			"arraysto_H0": "registerInstruction__wrappee__arraysto_H0",
+			"getstatic_b2_kernel": "registerInstruction__wrappee__getstatic_b2_kernel",
+			"castore_55": "registerInstruction__wrappee__castore_55",
+			"aaload_32": "registerInstruction__wrappee__aaload_32",
+			"invokevirtual_b6_kernel": "registerInstruction__wrappee__invokevirtual_b6_kernel",
+			"dup": "registerInstruction__wrappee__VirtualMachine",
+			"getstatic_b2_sandbox": "registerInstruction__wrappee__getstatic_b2_sandbox",
+			"invokevirtual_b6_sandbox": "registerInstruction",
+			"getstatic_b2_types": "registerInstruction__wrappee__getstatic_b2_types"
 		},
 		"load": {
 			"VirtualMachine": "load",
@@ -55,54 +39,36 @@
 		"tick": {
 			"VirtualMachine": "tick"
 		},
+		"checkOpcode": {
+			"VirtualMachine": "checkOpcode"
+		},
 		"getByteCode": {
 			"Instruction": "getByteCode",
-			"bipush_10": "getByteCode",
-			"aaload_32": "getByteCode",
-			"arraysto_H0": "getByteCode",
-			"castore_55": "getByteCode",
-			"getstatic_b2_kernel": "getByteCode",
-			"getstatic_b2_sandbox": "getByteCode",
-			"getstatic_b2_types": "getByteCode",
-			"invokevirtual_b6": "getByteCode",
 			"newarray_c5": "getByteCode",
-			"invokevirtual_b6_sandbox": "getByteCode",
+			"bipush_10": "getByteCode",
+			"arraysto_H0": "getByteCode",
+			"getstatic_b2_kernel": "getByteCode",
+			"castore_55": "getByteCode",
+			"aaload_32": "getByteCode",
+			"invokevirtual_b6_kernel": "getByteCode",
 			"dup": "getByteCode",
-			"invokevirtual_b6_kernel": "getByteCode"
+			"getstatic_b2_sandbox": "getByteCode",
+			"invokevirtual_b6_sandbox": "getByteCode",
+			"getstatic_b2_types": "getByteCode"
 		},
 		"execute": {
 			"Instruction": "execute",
-			"bipush_10": "execute",
-			"aaload_32": "execute",
-			"arraysto_H0": "execute",
-			"castore_55": "execute",
-			"getstatic_b2_kernel": "execute",
-			"getstatic_b2_sandbox": "execute",
-			"getstatic_b2_types": "execute",
-			"invokevirtual_b6": "execute",
 			"newarray_c5": "execute",
-			"invokevirtual_b6_sandbox": "execute",
+			"bipush_10": "execute",
+			"arraysto_H0": "execute",
+			"getstatic_b2_kernel": "execute",
+			"castore_55": "execute",
+			"aaload_32": "execute",
+			"invokevirtual_b6_kernel": "execute",
 			"dup": "execute",
-			"invokevirtual_b6_kernel": "execute"
-		},
-		"set": {
-			"RAM": "set"
-		},
-		"get": {
-			"RAM": "get",
-			"ConstantPool": "get"
-		},
-		"registerConstants": {
-			"ConstantPool": "registerConstants__wrappee__ConstantPool",
-			"Types": "registerConstants",
-			"Kernel": "registerConstants__wrappee__Kernel",
-			"Sandbox": "registerConstants__wrappee__Sandbox"
-		},
-		"pop": {
-			"Stack": "pop"
-		},
-		"newArray": {
-			"ArrayObjects": "newArray"
+			"getstatic_b2_sandbox": "execute",
+			"invokevirtual_b6_sandbox": "execute",
+			"getstatic_b2_types": "execute"
 		},
 		"arraystoInt": {
 			"arraysto_H0": "arraystoInt"
@@ -119,24 +85,6 @@
 		"arraystoCharacter": {
 			"arraysto_H0": "arraystoCharacter"
 		},
-		"store": {
-			"ArrayObjects": "store"
-		},
-		"checkRefAndPos": {
-			"ArrayObjects": "checkRefAndPos"
-		},
-		"push": {
-			"Stack": "push"
-		},
-		"printit": {
-			"Stack": "printit"
-		},
-		"checkOpcode": {
-			"VirtualMachine": "checkOpcode"
-		},
-		"auto_box": {
-			"ArrayObjects": "auto_box"
-		},
 		"invokeSandboxWrite": {
 			"invokevirtual_b6_kernel": "invokeSandboxWrite",
 			"invokevirtual_b6_sandbox": "invokeSandboxWrite"
@@ -146,6 +94,43 @@
 		},
 		"invokeSystemWrite": {
 			"invokevirtual_b6_kernel": "invokeSystemWrite"
+		},
+		"push": {
+			"Stack": "push"
+		},
+		"pop": {
+			"Stack": "pop"
+		},
+		"printit": {
+			"Stack": "printit"
+		},
+		"registerConstants": {
+			"ConstantPool": "registerConstants__wrappee__ConstantPool",
+			"Kernel": "registerConstants__wrappee__Kernel",
+			"Sandbox": "registerConstants__wrappee__ConstantPool",
+			"Types": "registerConstants"
+		},
+		"get": {
+			"ConstantPool": "get",
+			"RAM": "get"
+		},
+		"checkRefAndPos": {
+			"ArrayObjects": "checkRefAndPos"
+		},
+		"store": {
+			"ArrayObjects": "store"
+		},
+		"auto_box": {
+			"ArrayObjects": "auto_box"
+		},
+		"newArray": {
+			"ArrayObjects": "newArray"
+		},
+		"set": {
+			"RAM": "set"
+		},
+		"main": {
+			"Launcher": "main"
 		}
 	}
 
