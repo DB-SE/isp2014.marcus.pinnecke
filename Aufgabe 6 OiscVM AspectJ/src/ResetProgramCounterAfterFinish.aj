@@ -1,6 +1,3 @@
-import apple.laf.JRSUIConstants.Size;
-
-
 public aspect ResetProgramCounterAfterFinish {
 	
 	pointcut catchTickOperation(): execution (void OiscVM.tick()); 
